@@ -16,7 +16,7 @@ static const char * const BAR_FONT = "Envy Code R:size=12";
  * (see X(7) section "COLOR NAMES" for valid values)
  */
 static const char * const BG_COLOR = "#2d332d";
-static const char * const FG_COLOR = "#cbe6cb";
+static const char * const FG_COLOR = "#5ca77e";
 
 #endif
 #ifdef _IMAGE_CONFIG
