@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import os
 from urllib.request import urlopen as uOpn
 from urllib.request import urlretrieve as uRtv
