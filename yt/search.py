@@ -18,3 +18,8 @@ searchResultSoup = soupMaker(url)
 searchResults = searchResultSoup.find('ol',{'class':'item-section'})
 searchResultList = searchResults.find_all('div', {'class':'yt-lockup yt-lockup-tile yt-lockup-video vve-check clearfix'})
 
+for i in searchResultList:
+    link = i.find('a').get('href').replace('/watch?v=','')
+    print(link)
+    thumb = i.find('img').get('data-thumb')
+    print(thumb)
