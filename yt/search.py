@@ -24,4 +24,8 @@ for i in searchResultList:
     print(link)
     thumb = i.find('img').get('data-thumb')
     print(thumb)
-    uRtv(str(thumb), link + ".jpg")
+    try:
+        uRtv(str(thumb), link + ".jpg")
+    except:
+        print("Could not save thumb")
+        pass
