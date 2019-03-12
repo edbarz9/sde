@@ -1,3 +1,4 @@
+import os
 from urllib.request import urlopen as uOpn
 from urllib.request import urlretrieve as uRtv
 from bs4 import BeautifulSoup as bsoup
@@ -7,6 +8,10 @@ query = "cocovoit"
 ytSearchBase = "https://www.youtube.com/results?search_query="
 
 url = ytSearchBase + query
+
+thumbPath = "/tmp/ytSearchThumb/" + query + "/"
+if not os.path.isdir(thumbPath):
+    os.makedirs(thumbPath)
 
 def soupMaker(url):
     uClient = uOpn(url)
