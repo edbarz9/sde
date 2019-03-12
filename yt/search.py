@@ -30,7 +30,7 @@ for i in searchResultList:
     thumb = i.find('img').get('data-thumb')
     print(thumb)
     try:
-        uRtv(str(thumb), link + ".jpg")
+        uRtv(str(thumb), thumbPath + link + ".jpg")
     except:
         print("Could not save thumb")
         pass
