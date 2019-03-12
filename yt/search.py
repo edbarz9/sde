@@ -34,3 +34,5 @@ for i in searchResultList:
     except:
         print("Could not save thumb")
         pass
+
+os.system("sxiv -tr " + thumbPath + " *")
