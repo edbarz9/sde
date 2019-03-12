@@ -1,4 +1,5 @@
 from urllib.request import urlopen as uOpn
+from urllib.request import urlretrieve as uRtv
 from bs4 import BeautifulSoup as bsoup
 
 query = "cocovoit"
@@ -23,3 +24,4 @@ for i in searchResultList:
     print(link)
     thumb = i.find('img').get('data-thumb')
     print(thumb)
+    uRtv(str(thumb), link + ".jpg")
