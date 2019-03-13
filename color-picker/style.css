@@ -1,0 +1,26 @@
+@font-face{font-family: EnvyCodeR;
+  src: url(./Envy.ttf);
+  font-style: normal;
+  font-weight: 400;}
+
+.st {/*background-color: #2d332d;*/
+     background-color: rgba(45, 51, 45, 0.8);
+     padding: 5px;}
+.sc0 {color: #2d332d;}
+.sc1 {color: #e73a3a;}
+.sc2 {color: #5ca77e;}
+.sc3 {color: #ebbc29;}
+.sc4 {color: #639ab4;}
+.sc5 {color: #eba782;}
+.sc6 {color: #44c0b3;}
+.sc7 {color: #cbe6cb;}
+.sc8 {color: #5ca77e;}
+
+html pre {
+  font-family: EnvyCodeR;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1em;
+}
+
+
