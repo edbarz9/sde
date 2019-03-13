@@ -3,10 +3,42 @@
   font-style: normal;
   font-weight: 400;}
 
-.st {/*background-color: #2d332d;*/
-     background-color: rgba(45, 51, 45, 0.8);
-     padding: 5px;}
-.sc0 {color: #2d332d;}
+:root {
+  --c0 :#2d332d;
+  --c0r :45;
+  --c0g :51;
+  --c0b :45;
+  --c0a :0.6;
+  --c1 :#e73a3a;
+  --c2 :#5ca77e;
+  --c3 :#ebbc29;
+  --c4 :#639ab4;
+  --c5 :#eba782;
+  --c6 :#44c0b3;
+  --c7 :#cbe6cb;
+  --c8 :#5ca77e; 
+}
+
+
+.st {
+      /*background-color: #2d332d;
+     background-color: var(--c0);*/
+     background-color: rgba(var(--c0r),var(--c0g),var(--c0b),var(--c0a));
+     /*background-color: var(--c0);*/
+     padding: 2px;
+     margin: 10px;}
+
+.sc0 {color: var(--c0);}
+.sc1 {color: var(--c1);}
+.sc2 {color: var(--c2);}
+.sc3 {color: var(--c3);}
+.sc4 {color: var(--c4);}
+.sc5 {color: var(--c5);}
+.sc6 {color: var(--c6);}
+.sc7 {color: var(--c7);}
+.sc8 {color: var(--c8);}
+
+/*.sc0 {color: #2d332d;}
 .sc1 {color: #e73a3a;}
 .sc2 {color: #5ca77e;}
 .sc3 {color: #ebbc29;}
@@ -14,13 +46,146 @@
 .sc5 {color: #eba782;}
 .sc6 {color: #44c0b3;}
 .sc7 {color: #cbe6cb;}
-.sc8 {color: #5ca77e;}
+.sc8 {color: #5ca77e;}*/
 
-html pre {
+body {
+  background-image: url("wallpaper.jpg");
+  display: flex;
+}
+
+html, pre {
   font-family: EnvyCodeR;
   font-weight: 400;
   font-style: normal;
   font-size: 1em;
 }
 
+.tagsq {
+  vertical-align: 8px;
+  font-size: 0.7em;
+}
 
+.dwm-top {
+  margin: -8px;
+  padding: 2px;
+  margin-bottom: 10px;
+  color: var(--c7);
+  background-color: var(--c0);
+  /*background-color: #2d332d;*/
+}
+
+.dwm-t-a {
+  display: inline;
+  background-color: var(--c8);
+  color: var(--c0);
+  /*background-color: #5ca77e;
+  color: #2d332d;*/
+  padding: 2px;
+  padding-top: 6px;
+  padding-right: 3px;
+}
+.tagsqa {
+  vertical-align: 8px;
+  font-size: 0.7em;
+}
+
+.dwm-w-c {
+  display: inline;
+  margin-left: 3px;
+  margin-right: -6px;
+}
+
+.dwm-status {
+  display: inline;
+  float: right;
+  padding-top: 3px;
+  padding-right: 3px;
+}
+.dwm-w-t {
+  display: inline;
+  padding-top: 6px;
+  padding-left: 5px;
+  padding-bottom: 2px;
+  padding-right: 230px;
+  background-color: var(--c8);
+  color: var(--c0);
+  /*background-color: #5ca77e;
+  color: #2d332d;*/  
+}
+
+.dwm-box {
+  width:750px;
+  float: left;
+}
+
+.control {
+  padding: 10px;
+  float: right;
+  margin-left:15px;
+  width: 100%;
+  background-color: rgba(0,0,0,0.1);  
+  color: #e3e3e3;
+}
+
+input[type="color"]{
+  border: none;
+  padding: 0px;
+}
+/*input[type="color"]{display:none;}*/
+input[type="submit"]{
+  font-family: EnvyCodeR;
+  font-size: 1em;
+  border-radius: 0px;
+  border: none;
+  padding: 5px;
+  background-color: rgba(0,0,0,0.3);  
+  color: #e3e3e3;
+}
+
+input[type="number"]{
+  font-family: EnvyCodeR;
+  font-size: 1em;
+  border-radius: 0px;
+  border: none;
+  padding: 5px;
+  background-color: rgba(0,0,0,0.3);  
+  color: #e3e3e3;
+  width: 50px;
+}
+
+input[type="text"]{
+  font-family: EnvyCodeR;
+  font-size: 1em;
+  border-radius: 0px;
+  border: none;
+  padding: 5px;
+  margin-bottom: 5px;
+  background-color: rgba(0,0,0,0.3);  
+  color: #e3e3e3;
+  width: 150px;
+}
+
+button {
+  font-family: EnvyCodeR;
+  font-size: 1em;
+  border-radius: 0px;
+  border: none;
+  padding: 5px;
+  background-color: rgba(0,0,0,0.3);  
+  color: #e3e3e3;
+}
+
+a {
+  color: #72AFCC;
+}
+
+button:hover {
+  font-family: EnvyCodeR;
+  cursor: pointer;
+  font-size: 1em;
+  border-radius: 0px;
+  border: none;
+  padding: 5px;
+  background-color: rgba(0,0,0,0.5);  
+  color: #e3e3e3;
+}

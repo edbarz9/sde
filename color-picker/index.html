@@ -6,25 +6,37 @@
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
+<div class="dwm-box">
+<div class="dwm-top">
+<span class="tagsq">&#9643;</span><span class="">1 </span>
+<span class="tagsq"> </span><span class="">2 </span>
+<span class="tagsq"> </span><span class="">3 </span>
+<span class="tagsq"> </span><span class="">4 </span>
+<span class="tagsq"> </span><span class="">5 </span>
+<span class="tagsq"> </span><span class="">6 </span>
+<span class="tagsq"> </span><span class="">7 </span>
+<span class="tagsq">&#9643;</span><span class="">8 </span>
+<div class="dwm-t-a"><span class="tagsqa">&#9642;</span>9 </div>
+<div class="dwm-w-c">&nbsp;T&nbsp;</div>
+<div class="dwm-w-t">st </div>
+<div class="dwm-status">Day-01/02/03 08:09:10</div>
+</div>
 
 <div class="st">
-<pre>
-<span class="sc6">#!/bin/bash</span>
-
-<span class="sc6">MOUNTABLE</span><span class="sc7">=</span><span class="sc4">$(</span><span class="sc1">lsblk -lp</span> <span class="sc3">| grep "</span><span class="sc5">^/dev/sd[b-z][1-9]</span><span class="sc3">" |</span> <span class="sc1">awk</span> <span class="sc3">'</span><span class="sc5">{print $1, "(" $4 ")"}</span><span class="sc3">'</span><span class="sc4">)</span>
-
-<span class="sc3">if</span><span class="sc1"> [[ </span><span class="sc3"> "</span><span class="sc4">$MOUNTABLE</span><span class="sc3">" = </span><span class="sc5"> "" </span><span class="sc1"> ]]</span>
-<span class="sc3">  then
-    echo "</span><span class="sc5">nothing to mount</span><span class="sc3">" | </span><span class="sc7">dmenu</span><span class="sc3">
-    exit </span><span class="sc5">1</span><span class="sc3">
-fi</span>
-</pre>
+<pre><span class="sc3"> 1 </span><span class="sc6">#!/bin/bash</span>
+<span class="sc3"> 2 </span>
+<span class="sc3"> 3 </span><span class="sc6">MOUNTABLE</span><span class="sc7">=</span><span class="sc4">$(</span><span class="sc1">lsblk -lp</span> <span class="sc3">| grep "</span><span class="sc5">^/dev/sd[b-z][1-9]</span><span class="sc3">" |</span> <span class="sc1">awk</span> <span class="sc3">'</span><span class="sc5">{print $1}</span><span class="sc3">'</span><span class="sc4">)</span>
+<span class="sc3"> 4 </span>
+<span class="sc3"> 5 </span><span class="sc3">if</span><span class="sc1"> [[ </span><span class="sc3"> "</span><span class="sc4">$MOUNTABLE</span><span class="sc3">" = </span><span class="sc5"> "" </span><span class="sc1"> ]]</span>
+<span class="sc3"> 6 </span><span class="sc3">  then
+<span class="sc3"> 7 </span>    echo "</span><span class="sc5">nothing to mount</span><span class="sc3">" | </span><span class="sc7">dmenu</span><span class="sc3">
+<span class="sc3"> 8 </span>    exit </span><span class="sc5">1</span><span class="sc3">
+<span class="sc3"> 9 </span>fi</span>
+<span class="sc3">10 </span></pre>
 </div>
 
 
-<div class="st">
-<pre>
-<span class="sc4">#include </span><span class="sc5">&#60;stdio.h&#62;</span>
+<div class="st"><pre><span class="sc4">#include </span><span class="sc5">&#60;stdio.h&#62;</span>
 <span class="sc4">#include </span><span class="sc5">&#60;stdlib.h&#62;</span>
 <span class="sc2">int </span><span class="sc7">c = </span><span class="sc5">0</span><span class="sc7">;</span>
 
@@ -40,15 +52,77 @@ fi</span>
 <span class="sc7">  }</span>
 
 <span class="sc3">  return </span><span class="sc5">0</span><span class="sc7">;</span>
-<span class="sc7">}</span>
+<span class="sc7">}</span></pre>
+</div>
+</div>
+<div class="control">
+<form>
+  <table>
+  <tr>
+    <td>SC0 (BGd)</td>
+    <td><input type="color" id="c0" value="#2d332d"></td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td>Pal 01</td>
+    <td style="background-color: #1a1813">&nbsp;&nbsp;</td>
+    <td style="background-color: #cc3623">&nbsp;&nbsp;</td>
+    <td style="background-color: #588054">&nbsp;&nbsp;</td>
+    <td style="background-color: #ffff5d">&nbsp;&nbsp;</td>
+    <td style="background-color: #596c80">&nbsp;&nbsp;</td>
+    <td style="background-color: #b34c48">&nbsp;&nbsp;</td>
+    <td style="background-color: #257a99">&nbsp;&nbsp;</td>
+    <td style="background-color: #e6d7a8">&nbsp;&nbsp;</td>
+    <td style="background-color: #767160">&nbsp;&nbsp;</td>
+    <td><button type="button">load</button></td>
+  </tr>
+  <tr id="palfill01">
 
-
-
-
-
-</pre>
+  </tr>
+  <tr>
+    <td>SC1 (Red)</td>
+    <td><input type="color" id="c1" value="#e73a3a"></td>
+  </tr>
+  <tr>
+    <td>SC2 (Grn)</td>
+    <td><input type="color" id="c2" value="#5ca77e"></td>
+  </tr>
+  <tr>
+    <td>SC3 (Ylw)</td>
+    <td><input type="color" id="c3" value="#ebbc29"></td>
+  </tr>
+  <tr>
+    <td>SC4 (Blu)</td>
+    <td><input type="color" id="c4" value="#639ab4"></td>
+  </tr>
+  <tr>
+    <td>SC5 (Pnk)</td>
+    <td><input type="color" id="c5" value="#eba782"></td>
+  </tr>
+  <tr>
+    <td>SC6 (Cyn)</td>
+    <td><input type="color" id="c6" value="#44c0b3"></td>
+  </tr>
+  <tr>
+    <td>SC7 (FGd)</td>
+    <td><input type="color" id="c7" value="#cbe6cb"></td>
+  </tr>
+  <tr>
+    <td>SC8 (Stm)</td>
+    <td><input type="color" id="c8" value="#5ca77e"></td>
+  </tr>
+  <tr>
+    <td>Alpha</td>
+    <td><input type="number" id="ca" value="8" min="1" max="10"></td>
+  </tr>
+  </table>
+  <input type="text" id="pal" placeholder="custom"><br>
+  <button type="button" onclick="setcolors()">Set Colors</button>
+  <!--<input type="submit">-->
+</form>
+<div id="custom-palette"></div>
+<div id="dlink"></div>
 </div>
 
 </body>
+<script src="main.js"></script>
 </html>
 
