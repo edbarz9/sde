@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Title</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<div class="st">
+<pre>
+<span class="sc6">#!/bin/bash</span>
+
+<span class="sc6">MOUNTABLE</span><span class="sc7">=</span><span class="sc4">$(</span><span class="sc1">lsblk -lp</span> <span class="sc3">| grep "</span><span class="sc5">^/dev/sd[b-z][1-9]</span><span class="sc3">" |</span> <span class="sc1">awk</span> <span class="sc3">'</span><span class="sc5">{print $1, "(" $4 ")"}</span><span class="sc3">'</span><span class="sc4">)</span>
+
+<span class="sc3">if</span><span class="sc1"> [[ </span><span class="sc3"> "</span><span class="sc4">$MOUNTABLE</span><span class="sc3">" = </span><span class="sc5"> "" </span><span class="sc1"> ]]</span>
+<span class="sc3">  then
+    echo "</span><span class="sc5">nothing to mount</span><span class="sc3">" | </span><span class="sc7">dmenu</span><span class="sc3">
+    exit </span><span class="sc5">1</span><span class="sc3">
+fi</span>
+</pre>
+</div>
+
+
+<div class="st">
+<pre>
+<span class="sc4">#include </span><span class="sc5">&#60;stdio.h&#62;</span>
+<span class="sc4">#include </span><span class="sc5">&#60;stdlib.h&#62;</span>
+<span class="sc2">int </span><span class="sc7">c = </span><span class="sc5">0</span><span class="sc7">;</span>
+
+<span class="sc2">void</span>
+<span class="sc7">funcname(</span><span class="sc2">int </span><span class="sc7">c)
+{</span>
+<span class="sc6">  //This is just a comment</span>
+<span class="sc3">  switch </span><span class="sc7">(c)</span>
+<span class="sc7">  {</span>
+<span class="sc3">    case </span><span class="sc5">34</span><span class="sc7">:</span>
+<span class="sc7">      printf(</span><span class="sc5">"Hello 34</span><span class="sc1">\n</span><span class="sc5">"</span><span class="sc7">);</span>
+<span class="sc3">      break</span><span class="sc7">;</span>
+<span class="sc7">  }</span>
+
+<span class="sc3">  return </span><span class="sc5">0</span><span class="sc7">;</span>
+<span class="sc7">}</span>
+
+
+
+
+
+</pre>
+</div>
+
+</body>
+</html>
+
