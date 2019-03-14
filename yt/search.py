@@ -45,4 +45,4 @@ for i in searchResultList:
         print("Could not save thumb")
         pass
 
-os.system("sxiv -tr " + thumbPath + " *")
+os.system("cd "+ thumbPath +"&& sxiv -tr *")
