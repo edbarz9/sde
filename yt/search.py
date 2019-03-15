@@ -11,6 +11,7 @@ def parseQuery(q):
     for i in q.split():
         query = query + i + "+"
 
+    query = query[:-1]
     return query
 
 #query = parseQuery()
