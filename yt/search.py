@@ -44,10 +44,10 @@ for i in searchResultList:
     titletag = i.find('h3',{'class':'yt-lockup-title'})
     title = titletag.find('a').get('title')
     link = atag.get('href').replace('/watch?v=','')
-    #duration = i.find('span',{'class':'video-time'})
+    duration = i.find('span',{'class':'video-time'}).text.strip()
     print(title)
     print(link)
-    #print(duration)
+    print(duration)
     thumb = i.find('img').get('data-thumb')
     #print(thumb)
     try:
