@@ -14,8 +14,6 @@ def parseQuery(q):
     query = query[:-1]
     return query
 
-#query = parseQuery()
-
 dq = subprocess.check_output('echo "search youtube" | dmenu', shell=True)
 dq = str(dq).replace("b'","").replace("\\n'","")
 
@@ -42,8 +40,14 @@ searchResults = searchResultSoup.find('ol',{'class':'item-section'})
 searchResultList = searchResults.find_all('div', {'class':'yt-lockup yt-lockup-tile yt-lockup-video vve-check clearfix'})
 
 for i in searchResultList:
-    link = i.find('a').get('href').replace('/watch?v=','')
-    #print(link)
+    atag = i.find('a')
+    titletag = i.find('h3',{'class':'yt-lockup-title'})
+    title = titletag.find('a').get('title')
+    link = atag.get('href').replace('/watch?v=','')
+    #duration = i.find('span',{'class':'video-time'})
+    print(title)
+    print(link)
+    #print(duration)
     thumb = i.find('img').get('data-thumb')
     #print(thumb)
     try:
