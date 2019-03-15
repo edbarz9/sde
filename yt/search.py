@@ -35,6 +35,11 @@ def soupMaker(url):
     soup = bsoup(html_page,"html.parser")
     return soup
 
+try:
+    os.system('notify-send "searching for:' + dq + '"')
+except:
+    pass
+
 searchResultSoup = soupMaker(url)
 searchResults = searchResultSoup.find('ol',{'class':'item-section'})
 searchResultList = searchResults.find_all('div', {'class':'yt-lockup yt-lockup-tile yt-lockup-video vve-check clearfix'})
