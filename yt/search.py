@@ -1,19 +1,25 @@
 #!/usr/bin/python3
 import os
 import sys
+import subprocess
 from urllib.request import urlopen as uOpn
 from urllib.request import urlretrieve as uRtv
 from bs4 import BeautifulSoup as bsoup
 
-def parseQuery():
+def parseQuery(q):
     query = ""
-    for i in range(len(sys.argv) - 2):
-        query = query + sys.argv[i+1] + "+"
+    for i in q.split():
+        query = query + i + "+"
 
-    query = query + sys.argv[i+2]
     return query
 
-query = parseQuery()
+#query = parseQuery()
+
+dq = subprocess.check_output('echo "search youtube" | dmenu', shell=True)
+dq = str(dq).replace("b'","").replace("\\n'","")
+
+query = parseQuery(dq)
+print(query)
 
 ytSearchBase = "https://www.youtube.com/results?search_query="
 
