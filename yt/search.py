@@ -77,7 +77,7 @@ for i in searchResultList:
             thumb = i.find('img').get('data-thumb')
             uRtv(str(thumb), thumbPath + link + " " + title + " " + duration + ".jpg")
         else:
-            vList.append([vidIdx,link])
+            vList.append([vidIdx,link,title])
             print(str(vidIdx) + " " + title + " " + duration)
             vidIdx = vidIdx + 1
     except:
@@ -89,6 +89,10 @@ if not cliMode:
 else:
     dln = input("download vid n°? ")
     try:
-        print(vList[int(dln)][1])
+        print('start downloading' + vList[int(dln)][2])
+        vId = vList[int(dln)][1]
+        ytBase = "https://www.youtube.com/watch?v="
+        ytLink = ytBase + vId
+        os.system('youtube-dl --write-thumbnail -f webm '+ ytLink +' -o /tmp/ytdowns/'+ vId +'".webm" && notify-send "download finished"&')
     except:
         print("not a number")
