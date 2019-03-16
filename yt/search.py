@@ -61,6 +61,8 @@ searchResultSoup = soupMaker(url)
 searchResults = searchResultSoup.find('ol',{'class':'item-section'})
 searchResultList = searchResults.find_all('div', {'class':'yt-lockup yt-lockup-tile yt-lockup-video vve-check clearfix'})
 
+vidIdx = 0
+vList = []
 for i in searchResultList:
     try:
         atag = i.find('a')
@@ -75,7 +77,8 @@ for i in searchResultList:
             thumb = i.find('img').get('data-thumb')
             uRtv(str(thumb), thumbPath + link + " " + title + " " + duration + ".jpg")
         else:
-            print(title + " " + duration)
+            print(str(vidIdx) + " " + title + " " + duration)
+            vidIdx = vidIdx + 1
     except:
         print("Could not save thumb")
         pass
