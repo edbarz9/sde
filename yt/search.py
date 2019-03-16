@@ -67,14 +67,17 @@ for i in searchResultList:
         title = titletag.find('a').get('title')
         link = atag.get('href').replace('/watch?v=','')
         duration = i.find('span',{'class':'video-time'}).text.strip()
-        print(title)
-        print(link)
-        print(duration)
-        thumb = i.find('img').get('data-thumb')
-        #print(thumb)
-        uRtv(str(thumb), thumbPath + link + " " + title + " " + duration + ".jpg")
+        #print(title)
+        #print(link)
+        #print(duration)
+        if not cliMode:
+            thumb = i.find('img').get('data-thumb')
+            uRtv(str(thumb), thumbPath + link + " " + title + " " + duration + ".jpg")
+        else:
+            print(title + " " + duration)
     except:
         print("Could not save thumb")
         pass
 
-os.system("cd "+ thumbPath +"&& sxiv -tr *")
+if not cliMode:
+    os.system("cd "+ thumbPath +"&& sxiv -tr *")
