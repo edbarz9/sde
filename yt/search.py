@@ -29,10 +29,11 @@ def parseQuery(q):
 
 query = parseArg()
 print(cliMode)
-dq = subprocess.check_output('echo "search youtube" | dmenu', shell=True)
-dq = str(dq).replace("b'","").replace("\\n'","")
+if not cliMode:
+    dq = subprocess.check_output('echo "search youtube" | dmenu', shell=True)
+    dq = str(dq).replace("b'","").replace("\\n'","")
+    query = parseQuery(dq)
 
-query = parseQuery(dq)
 print(query)
 
 ytSearchBase = "https://www.youtube.com/results?search_query="
