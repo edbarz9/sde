@@ -6,6 +6,19 @@ from urllib.request import urlopen as uOpn
 from urllib.request import urlretrieve as uRtv
 from bs4 import BeautifulSoup as bsoup
 
+cliMode = False
+
+def parseArg():
+    global cliMode
+    query = ""
+    if len(sys.argv) > 1:
+        cliMode = True
+        for i in range(len(sys.argv) - 2):
+            query = query + sys.argv[i+1] + "+"
+
+        query = query + sys.argv[i+2]
+    return query
+
 def parseQuery(q):
     query = ""
     for i in q.split():
@@ -14,6 +27,8 @@ def parseQuery(q):
     query = query[:-1]
     return query
 
+query = parseArg()
+print(cliMode)
 dq = subprocess.check_output('echo "search youtube" | dmenu', shell=True)
 dq = str(dq).replace("b'","").replace("\\n'","")
 
