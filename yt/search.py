@@ -77,6 +77,7 @@ for i in searchResultList:
             thumb = i.find('img').get('data-thumb')
             uRtv(str(thumb), thumbPath + link + " " + title + " " + duration + ".jpg")
         else:
+            vList.append([vidIdx,link])
             print(str(vidIdx) + " " + title + " " + duration)
             vidIdx = vidIdx + 1
     except:
@@ -85,3 +86,6 @@ for i in searchResultList:
 
 if not cliMode:
     os.system("cd "+ thumbPath +"&& sxiv -tr *")
+else:
+    dln = input("download vid n°? ")
+    print(vList[int(dln)][1])
