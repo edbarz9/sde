@@ -88,4 +88,7 @@ if not cliMode:
     os.system("cd "+ thumbPath +"&& sxiv -tr *")
 else:
     dln = input("download vid n°? ")
-    print(vList[int(dln)][1])
+    try:
+        print(vList[int(dln)][1])
+    except:
+        print("not a number")
