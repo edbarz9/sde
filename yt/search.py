@@ -91,6 +91,6 @@ else:
         vId = vList[int(dln)][1]
         ytBase = "https://www.youtube.com/watch?v="
         ytLink = ytBase + vId
-        os.system('youtube-dl --write-thumbnail -f webm '+ ytLink +' -o /tmp/ytdowns/'+ vId +'".webm" && notify-send "download finished"&')
+        os.system('youtube-dl --write-thumbnail -f webm '+ ytLink +' -o /tmp/ytdowns/'+ vId +'".webm" && notify-send "download finished"')
     except:
         print("not a number")
