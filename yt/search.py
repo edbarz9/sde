@@ -87,7 +87,7 @@ if not cliMode:
 else:
     dln = input("download vid n°? ")
     try:
-        print('start downloading' + vList[int(dln)][2])
+        print('start downloading: ' + vList[int(dln)][2])
         vId = vList[int(dln)][1]
         ytBase = "https://www.youtube.com/watch?v="
         ytLink = ytBase + vId
