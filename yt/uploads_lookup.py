@@ -16,6 +16,6 @@ tlist = tsoup.find_all('div',{'class':'yt-lockup-dismissable'})
 for l in tlist:
     link = l.find('a').get('href').replace('/watch?v=','')
     thumb = l.find('img').get('src')
-    title = l.find('h3',{'class':'yt-lockup-title'}).get('title')
+    title = l.find('h3',{'class':'yt-lockup-title'}).text.strip()
     print(link)
     print(title)
