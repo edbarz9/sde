@@ -2,9 +2,17 @@
 import os
 import sys
 import subprocess
+from configparser import ConfigParser
 from urllib.request import urlopen as uOpn
 from urllib.request import urlretrieve as uRtv
 from bs4 import BeautifulSoup as bsoup
+
+confpath = os.path.expanduser('~/.config/blbs.conf')
+
+parser = ConfigParser()
+parser.read(confpath)
+
+print(parser.get('youtube', 'thumbdir'))
 
 cliMode = False
 
