@@ -1,6 +1,14 @@
 from urllib.request import urlopen as uOpn
 from urllib.request import urlretrieve as uRtv
 from bs4 import BeautifulSoup as bsoup
+from configparser import ConfigParser
+
+confpath = os.path.expanduser('~/.config/blbs.conf')
+
+parser = ConfigParser()
+parser.read(confpath)
+
+subListPath = parser.get('youtube', 'subscriptions')
 
 def soupMaker(url):
     uClient = uOpn(url)
@@ -9,7 +17,10 @@ def soupMaker(url):
     soup = bsoup(html_page,"html.parser")
     return soup
 
-tsoup = soupMaker("https://www.youtube.com/user/thinkerview/videos")
+url = "https://www.youtube.com/channel/UC0NCbj8CxzeCGIF6sODJ-7A/videos"
+
+tsoup = soupMaker(url)
+#tsoup = soupMaker("https://www.youtube.com/user/thinkerview/videos")
 
 tlist = tsoup.find_all('div',{'class':'yt-lockup-dismissable'})
 
