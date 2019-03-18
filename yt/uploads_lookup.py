@@ -1,3 +1,5 @@
+import os
+import json
 from urllib.request import urlopen as uOpn
 from urllib.request import urlretrieve as uRtv
 from bs4 import BeautifulSoup as bsoup
@@ -9,6 +11,10 @@ parser = ConfigParser()
 parser.read(confpath)
 
 subListPath = parser.get('youtube', 'subscriptions')
+subFile = open(subListPath,'r')
+subListJson = json.loads(subFile)
+subFile.close()
+print(subListJson['test'])
 
 def soupMaker(url):
     uClient = uOpn(url)
