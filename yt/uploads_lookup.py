@@ -11,10 +11,9 @@ parser = ConfigParser()
 parser.read(confpath)
 
 subListPath = parser.get('youtube', 'subscriptions')
-subFile = open(subListPath,'r')
-subListJson = json.loads(subFile)
-subFile.close()
-print(subListJson['test'])
+subListJson = open(os.path.expanduser(subListPath)).read()
+sublist = json.loads(subListJson)
+print(sublist['test'])
 
 def soupMaker(url):
     uClient = uOpn(url)
