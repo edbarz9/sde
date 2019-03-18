@@ -12,7 +12,7 @@ confpath = os.path.expanduser('~/.config/blbs.conf')
 parser = ConfigParser()
 parser.read(confpath)
 
-print(parser.get('youtube', 'thumbdir'))
+thumbBase = parser.get('youtube', 'thumbdir')
 
 cliMode = False
 
@@ -47,7 +47,8 @@ ytSearchBase = "https://www.youtube.com/results?search_query="
 
 url = ytSearchBase + query
 
-thumbPath = "/tmp/ytSearchThumb/" + query + "/"
+#thumbPath = "/tmp/ytSearchThumb/" + query + "/"
+thumbPath = thumbBase + "/" + query + "/"
 if not os.path.isdir(thumbPath):
     os.makedirs(thumbPath)
 
