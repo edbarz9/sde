@@ -18,5 +18,7 @@ for l in tlist:
     thumb = l.find('img').get('src')
     titletag = l.find('h3',{'class':'yt-lockup-title'})
     title = titletag.find('a').text.strip()
+    duration = l.find('span',{'class':'video-time'}).text.strip()
     print(link)
     print(title)
+    print(duration)
