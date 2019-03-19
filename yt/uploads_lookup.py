@@ -29,8 +29,10 @@ def soupMaker(url):
     soup = bsoup(html_page,"html.parser")
     return soup
 
-def parseVids(channelId):
-    ytchanbase = "https://www.youtube.com/channel/"
+def parseVids(channel):
+    channelId = channel['id']
+    channelType = channel['type']
+    ytchanbase = "https://www.youtube.com/" + channelType + "/"
     url = ytchanbase + channelId + "/videos"
     print(url)
     soup = soupMaker(url)
@@ -48,4 +50,8 @@ def parseVids(channelId):
         vidName = date + link + " " + title + " " + duration
         print(vidName)
 
-parseVids("UCHVxCo7tMNY6OrjVnJct--A")
+def parseSub(channels):
+    for c in channels:
+        parseVids(channels[c])
+
+parseSub(sublist)
