@@ -19,6 +19,14 @@ for i in sublist:
 
 months = {"Jan":"01","Feb":"02","Mar":"03","Apr":"04","May":"05","Jun":"06","Jul":"07","Aug":"08","Sep":"09","Oct":"10","Nov":"11","Dec":"12"}
 
+def date2int(date):
+    date = date.replace("Published on ","")
+    month = months[date[0:3]]
+    return month
+
+dateTest = "Published on Dec 15, 2018"
+print(date2int(dateTest))
+
 def soupMaker(url):
     uClient = uOpn(url)
     html_page = uClient.read()
