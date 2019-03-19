@@ -35,7 +35,7 @@ def soupMaker(url):
 
 def parseVids(channelId):
     ytchanbase = "https://www.youtube.com/channel/"
-    url = ytchanbase + channelId + "videos"
+    url = ytchanbase + channelId + "/videos"
     soup = soupMaker(url)
     tlist = soup.find_all('div',{'class':'yt-lockup-dismissable'})
 
@@ -47,3 +47,5 @@ def parseVids(channelId):
         duration = l.find('span',{'class':'video-time'}).text.strip()
         vidName = link + " " + title + " " + duration
         print(vidName)
+
+parseVids("thinkerview")
