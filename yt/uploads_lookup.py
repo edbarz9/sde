@@ -47,7 +47,7 @@ def parseVids(channel):
         vidsoup = soupMaker("https://www.youtube.com/watch?v=" + link)
         datestr = vidsoup.find('meta',{'itemprop':'datePublished'}).get("content")
         date = dateIndxMkr(datestr)
-        vidName = date + link + " " + title + " " + duration
+        vidName = date + " " + link + " " + title + " " + duration
         print(vidName)
 
 def parseSub(channels):
