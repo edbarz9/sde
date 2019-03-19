@@ -13,7 +13,9 @@ parser.read(confpath)
 subListPath = parser.get('youtube', 'subscriptions')
 subListJson = open(os.path.expanduser(subListPath)).read()
 sublist = json.loads(subListJson)
-print(sublist['test'])
+#print(type(sublist))
+for i in sublist:
+    print(i + " " + sublist[i])
 
 def soupMaker(url):
     uClient = uOpn(url)
