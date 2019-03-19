@@ -24,11 +24,11 @@ def date2int(date):
     month = months[date[0:3]]
     year = date[10:12]
     day = date[4:6]
-    return year + month + day
+    dateIndex = 999999 - int(year + month + day)
+    return str(dateIndex)
 
 dateTest = "Published on Dec 15, 2018"
 print(date2int(dateTest))
-quit()
 
 def soupMaker(url):
     uClient = uOpn(url)
