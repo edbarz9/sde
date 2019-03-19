@@ -46,6 +46,8 @@ def parseVids(channelId):
         titletag = l.find('h3',{'class':'yt-lockup-title'})
         title = titletag.find('a').text.strip()
         duration = l.find('span',{'class':'video-time'}).text.strip()
+        datestr = l.find('span', {'class':'date style-scope ytd-video-secondary-info-renderer'})
+        print(datestr)
         vidName = link + " " + title + " " + duration
         print(vidName)
 
