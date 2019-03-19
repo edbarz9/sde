@@ -18,12 +18,8 @@ sublist = json.loads(subListJson)
 
 months = {"Jan":"01","Feb":"02","Mar":"03","Apr":"04","May":"05","Jun":"06","Jul":"07","Aug":"08","Sep":"09","Oct":"10","Nov":"11","Dec":"12"}
 
-def date2int(date):
-    date = date.replace("Published on ","")
-    month = months[date[0:3]]
-    year = date[10:12]
-    day = date[4:6]
-    dateIndex = 999999 - int(year + month + day)
+def dateIndxMkr(date):
+    dateIndex = 999999 - int(date[2:4]+date[5:7]+date[8:10])
     return str(dateIndex)
 
 def soupMaker(url):
@@ -48,9 +44,8 @@ def parseVids(channelId):
         duration = l.find('span',{'class':'video-time'}).text.strip()
         vidsoup = soupMaker("https://www.youtube.com/watch?v=" + link)
         datestr = vidsoup.find('meta',{'itemprop':'datePublished'}).get("content")
-        #datestr = vidsoup.find('span', {'class':'date style-scope ytd-video-secondary-info-renderer'})
-        print(datestr)
-        vidName = link + " " + title + " " + duration
+        date = dateIndxMkr(datestr)
+        vidName = date + link + " " + title + " " + duration
         print(vidName)
 
 parseVids("UCHVxCo7tMNY6OrjVnJct--A")
