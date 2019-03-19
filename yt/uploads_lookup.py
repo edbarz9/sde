@@ -22,10 +22,13 @@ months = {"Jan":"01","Feb":"02","Mar":"03","Apr":"04","May":"05","Jun":"06","Jul
 def date2int(date):
     date = date.replace("Published on ","")
     month = months[date[0:3]]
-    return month
+    year = date[10:12]
+    day = date[4:6]
+    return year + month + day
 
 dateTest = "Published on Dec 15, 2018"
 print(date2int(dateTest))
+quit()
 
 def soupMaker(url):
     uClient = uOpn(url)
