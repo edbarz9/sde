@@ -37,18 +37,17 @@ def soupMaker(url):
     soup = bsoup(html_page,"html.parser")
     return soup
 
-url = "https://www.youtube.com/channel/UC0NCbj8CxzeCGIF6sODJ-7A/videos"
+def parseVids(channelId):
+    ytchanbase = "https://www.youtube.com/channel/"
+    url = ytchanbase + channelId + "videos"
+    soup = soupMaker(url)
+    tlist = soup.find_all('div',{'class':'yt-lockup-dismissable'})
 
-tsoup = soupMaker(url)
-#tsoup = soupMaker("https://www.youtube.com/user/thinkerview/videos")
-
-tlist = tsoup.find_all('div',{'class':'yt-lockup-dismissable'})
-
-for l in tlist:
-    link = l.find('a').get('href').replace('/watch?v=','')
-    thumb = l.find('img').get('src')
-    titletag = l.find('h3',{'class':'yt-lockup-title'})
-    title = titletag.find('a').text.strip()
-    duration = l.find('span',{'class':'video-time'}).text.strip()
-    vidName = link + " " + title + " " + duration
-    print(vidName)
+    for l in tlist:
+        link = l.find('a').get('href').replace('/watch?v=','')
+        thumb = l.find('img').get('src')
+        titletag = l.find('h3',{'class':'yt-lockup-title'})
+        title = titletag.find('a').text.strip()
+        duration = l.find('span',{'class':'video-time'}).text.strip()
+        vidName = link + " " + title + " " + duration
+        print(vidName)
