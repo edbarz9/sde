@@ -13,8 +13,8 @@ parser.read(confpath)
 subListPath = parser.get('youtube', 'subscriptions')
 subListJson = open(os.path.expanduser(subListPath)).read()
 sublist = json.loads(subListJson)
-for i in sublist:
-    print(i + " " + sublist[i])
+#for i in sublist:
+#    print(i + " " + sublist[i])
 
 months = {"Jan":"01","Feb":"02","Mar":"03","Apr":"04","May":"05","Jun":"06","Jul":"07","Aug":"08","Sep":"09","Oct":"10","Nov":"11","Dec":"12"}
 
@@ -46,7 +46,9 @@ def parseVids(channelId):
         titletag = l.find('h3',{'class':'yt-lockup-title'})
         title = titletag.find('a').text.strip()
         duration = l.find('span',{'class':'video-time'}).text.strip()
-        datestr = l.find('span', {'class':'date style-scope ytd-video-secondary-info-renderer'})
+        vidsoup = soupMaker("https://www.youtube.com/watch?v=" + link)
+        datestr = vidsoup.find('meta',{'itemprop':'datePublished'}).get("content")
+        #datestr = vidsoup.find('span', {'class':'date style-scope ytd-video-secondary-info-renderer'})
         print(datestr)
         vidName = link + " " + title + " " + duration
         print(vidName)
