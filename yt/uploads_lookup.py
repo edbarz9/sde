@@ -12,7 +12,8 @@ parser.read(confpath)
 
 subListPath = parser.get('youtube', 'subscriptions')
 subListJson = open(os.path.expanduser(subListPath)).read()
-sublist = json.loads(subListJson)
+data = json.loads(subListJson)
+sublist = data['subs']
 #for i in sublist:
 #    print(i + " " + sublist[i])
 
