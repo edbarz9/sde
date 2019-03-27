@@ -15,6 +15,7 @@ subListJson = open(os.path.expanduser(subListPath)).read()
 data = json.loads(subListJson)
 sublist = data['subs']
 lastCheck = data['last']
+ytwatch = "https://www.youtube.com/watch?v="
 
 def dateIndxMkr(date):
     dateIndex = 999999 - int(date[2:4]+date[5:7]+date[8:10])
@@ -34,18 +35,22 @@ def parseVids(channel):
     url = ytchanbase + channelId + "/videos"
     print(url)
     soup = soupMaker(url)
-    tlist = soup.find_all('div',{'class':'yt-lockup-dismissable'})
+    tlist = soup.find_all('div', \
+        {'class':'yt-lockup-dismissable'})
 
     for l in tlist:
         link = l.find('a').get('href').replace('/watch?v=','')
         thumb = l.find('img').get('src')
         titletag = l.find('h3',{'class':'yt-lockup-title'})
         title = titletag.find('a').text.strip()
-        duration = l.find('span',{'class':'video-time'}).text.strip()
-        vidsoup = soupMaker("https://www.youtube.com/watch?v=" + link)
-        datestr = vidsoup.find('meta',{'itemprop':'datePublished'}).get("content")
+        duration = l.find('span', \
+            {'class':'video-time'}).text.strip()
+        vidsoup = soupMaker(ytwatch + link)
+        datestr = vidsoup.find('meta', \
+            {'itemprop':'datePublished'}).get("content")
         date = dateIndxMkr(datestr)
-        vidName = date + " " + link + " " + title + " " + duration
+        vidName = date + " " + link + " " + \
+                  title + " " + duration
         print(vidName)
 
 def parseSub(channels):
