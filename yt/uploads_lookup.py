@@ -14,6 +14,7 @@ subListPath = parser.get('youtube', 'subscriptions')
 subListJson = open(os.path.expanduser(subListPath)).read()
 data = json.loads(subListJson)
 sublist = data['subs']
+lastCheck = data['last']
 #for i in sublist:
 #    print(i + " " + sublist[i])
 
