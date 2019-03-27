@@ -19,7 +19,7 @@ ytwatch = "https://www.youtube.com/watch?v="
 
 def dateIndxMkr(date):
     dateIndex = 999999 - int(date[2:4]+date[5:7]+date[8:10])
-    return str(dateIndex)
+    return dateIndex
 
 def soupMaker(url):
     uClient = uOpn(url)
@@ -37,7 +37,6 @@ def parseVids(channel):
     soup = soupMaker(url)
     tlist = soup.find_all('div', \
         {'class':'yt-lockup-dismissable'})
-
     for l in tlist:
         link = l.find('a').get('href').replace('/watch?v=','')
         thumb = l.find('img').get('src')
@@ -49,9 +48,11 @@ def parseVids(channel):
         datestr = vidsoup.find('meta', \
             {'itemprop':'datePublished'}).get("content")
         date = dateIndxMkr(datestr)
-        vidName = date + " " + link + " " + \
+        vidName = str(date) + " " + link + " " + \
                   title + " " + duration
         print(vidName)
+        if date >= lastCheck:
+            break
 
 def parseSub(channels):
     for c in channels:
