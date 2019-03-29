@@ -22,7 +22,7 @@ ytwatch = "https://www.youtube.com/watch?v="
 def dateIndxMkr(date):
     global newLast
     dateIndex = 999999 - int(date[2:4]+date[5:7]+date[8:10])
-    if dateIndex < lastCheck:
+    if dateIndex < newLast:
         newLast = dateIndex
     return dateIndex
 
