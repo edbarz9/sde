@@ -20,8 +20,7 @@ newLast = lastCheck
 ytwatch = "https://www.youtube.com/watch?v="
 
 thumbPath = os.path.expanduser(parser.get('youtube','subthumb'))
-print(thumbPath)
-quit()
+#print(thumbPath)
 
 def dateIndxMkr(date):
     global newLast
@@ -42,7 +41,7 @@ def parseVids(channel):
     channelType = channel['type']
     ytchanbase = "https://www.youtube.com/" + channelType + "/"
     url = ytchanbase + channelId + "/videos"
-    print(url)
+    #print(url)
     soup = soupMaker(url)
     tlist = soup.find_all('div', \
         {'class':'yt-lockup-dismissable'})
@@ -60,9 +59,10 @@ def parseVids(channel):
             date = dateIndxMkr(datestr)
             vidName = str(date) + " " + link + " " + \
                       title + " " + duration
-            if date >= lastCheck:
+            vidPath = thumbPath + vidName + ".jpg"
+            if date > lastCheck:
                 break
-            print(vidName)
+            uRtv(str(thumb), vidPath)
         except:
             pass
 
@@ -78,5 +78,5 @@ def updateJson():
 
 parseSub(sublist)
 updateJson()
-print(lastCheck)
-print(newLast)
+#print(lastCheck)
+#print(newLast)
