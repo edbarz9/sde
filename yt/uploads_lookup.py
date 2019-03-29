@@ -19,6 +19,10 @@ lastCheck = data['last']
 newLast = lastCheck
 ytwatch = "https://www.youtube.com/watch?v="
 
+thumbPath = os.path.expanduser(parser.get('youtube','subthumb'))
+print(thumbPath)
+quit()
+
 def dateIndxMkr(date):
     global newLast
     dateIndex = 999999 - int(date[2:4]+date[5:7]+date[8:10])
