@@ -25,6 +25,7 @@ sublist = data['subs']
 lastCheck = data['last']
 newLast = lastCheck
 ytwatch = "https://www.youtube.com/watch?v="
+newCache = []
 
 thumbPath = os.path.expanduser(parser.get('youtube','subthumb'))
 #print(thumbPath)
@@ -58,7 +59,7 @@ def parseVids(channel):
             if link in cache:
                 break
             print("new vid")
-            cache.append(link)
+            newCache.append(link)
             thumb = l.find('img').get('src')
             titletag = l.find('h3',{'class':'yt-lockup-title'})
             title = titletag.find('a').text.strip()
@@ -85,7 +86,16 @@ def updateJson():
     with open(jsonPath, 'w') as newJSON:
         json.dump(data, newJSON, sort_keys=True, indent=2)
 
+def updateCache():
+    global cacheData
+    for l in newCache:
+        cacheData['checked'].append(l)
+    with open(cachePath ,'w') as cacheJSON:
+        json.dump(cacheData, cacheJSON, indent=2)
+
 parseSub(sublist)
 updateJson()
+#update cache
+updateCache()
 #print(lastCheck)
 #print(newLast)
