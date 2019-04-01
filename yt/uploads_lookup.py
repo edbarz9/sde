@@ -10,6 +10,13 @@ confpath = os.path.expanduser('~/.config/blbs.conf')
 parser = ConfigParser()
 parser.read(confpath)
 
+cachePath = parser.get('youtube', 'cache')
+cachePath = os.path.expanduser(cachePath)
+c = open(cachePath).read()
+cacheData = json.loads(c)
+cache = cacheData['checked']
+print(cache)
+
 subListPath = parser.get('youtube', 'subscriptions')
 jsonPath = os.path.expanduser(subListPath)
 subListJson = open(jsonPath).read()
