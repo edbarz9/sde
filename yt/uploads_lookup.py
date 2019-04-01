@@ -48,13 +48,17 @@ def parseVids(channel):
     channelType = channel['type']
     ytchanbase = "https://www.youtube.com/" + channelType + "/"
     url = ytchanbase + channelId + "/videos"
-    #print(url)
+    print(url)
     soup = soupMaker(url)
     tlist = soup.find_all('div', \
         {'class':'yt-lockup-dismissable'})
     for l in tlist:
         try :
             link = l.find('a').get('href').replace('/watch?v=','')
+            if link in cache:
+                break
+            print("new vid")
+            cache.append(link)
             thumb = l.find('img').get('src')
             titletag = l.find('h3',{'class':'yt-lockup-title'})
             title = titletag.find('a').text.strip()
@@ -67,8 +71,6 @@ def parseVids(channel):
             vidName = str(date) + " " + link + " " + \
                       title + " " + duration
             vidPath = thumbPath + vidName + ".jpg"
-            if date > lastCheck:
-                break
             uRtv(str(thumb), vidPath)
         except:
             pass
